@@ -5,8 +5,7 @@ const Main = (props) => {
     return (
         <Container>
             <ShareBox>
-                Share
-
+                
                 <div>
                     <img src="/images/user.svg" alt="" />
                     <button> Start a post</button>
@@ -14,22 +13,22 @@ const Main = (props) => {
 
                 <div>
                     <button>
-                        <img src="/images/photo-icon.svg" alt="" />
+                        <img src="/images/image-icon.jpg" alt="" width="30px" height="30px"/>
                         <span> Photo </span>
                     </button>
 
                     <button>
-                        <img src="/images/video-icon.svg" alt="" />
+                        <img src="/images/video.jpeg" alt="" width="30px" height="30px"/>
                         <span> Video </span>
                     </button>
 
                     <button>
-                        <img src="/images/event-icon.svg" alt="" />
+                        <img src="/images/event-icon.png" alt="" width="30px" height="30px"/>
                         <span> Event </span>
                     </button>
 
                     <button>
-                        <img src="/images/article-icon.svg" alt="" />
+                        <img src="/images/article-icon.png" alt="" width="30px" height="30px"/>
                         <span> Write article </span>
                     </button>
                 </div>
@@ -57,7 +56,7 @@ const Main = (props) => {
                         </a>
 
                         <button>
-                            <img src="/images/ellipsis.svg" alt="" />
+                            <img src="https://static.thenounproject.com/png/93425-200.png" alt="" width="30px" height="30px" />
                         </button>
                     </SharedActor>
 
@@ -67,9 +66,17 @@ const Main = (props) => {
 
                     <SharedImg>
                         <a>
-                            <img src="/images/shared-image.jpg" alt="" />
+                            <img src="https://www.pentasia.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaXhwIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9b531a296e23edbb0ae0d85e4160a44a71b44f8e/1662_original.jpg" alt="" width="30px" height="30px" />
                         </a>
                     </SharedImg>
+
+                    <SocialCounts>
+                        <li>
+                            <button>
+                                <img src="https://static-expl.licdn.com/sc/h/d310t2g24pvdy4pt1jkedo4yb" alt="" />
+                            </button>
+                        </li>
+                    </SocialCounts>
                 </Article>
             </div>
         </Container>
@@ -216,6 +223,26 @@ const SharedActor = styled.div`
     }
 `
 
-const Description = styled.div``
+const Description = styled.div`
+    padding: 0 16px;
+    overflow: hidden;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 14px;
+    text-align: left;
+`
 
-const SharedImg = styled.div``
+const SharedImg = styled.div`
+    margin-top: 8px;
+    width: 100%;
+    display: block;
+    position: relative;
+    background-color: #f9fafb;
+
+    img{
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+    }
+`
+
+const SocialCounts = styled.div``
