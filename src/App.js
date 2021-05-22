@@ -1,10 +1,17 @@
 import './App.css';
+import { useEffect } from 'react'
 import Login from './components/Login'
 import Header from './components/Header'
 import Home from './components/Home'
 import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import { getUserAuth } from './actions'
 
-function App() {
+function App(props) {
+
+  useEffect(() => {
+    props.getUserAuth();
+  }, []);
+
   return (
     <div className="App">
       <Router>
@@ -24,4 +31,5 @@ function App() {
   );
 }
 
+const map
 export default App;
