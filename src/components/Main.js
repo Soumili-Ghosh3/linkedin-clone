@@ -1,11 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
+import PostModal from './PostModal'
 
 const Main = (props) => {
     return (
         <Container>
             <ShareBox>
-                
+                Share
                 <div>
                     <img src="/images/user.svg" alt="" />
                     <button> Start a post</button>
@@ -107,6 +108,7 @@ const Main = (props) => {
 
                 </Article>
             </div>
+            <PostModal />
         </Container>
     )
 }
