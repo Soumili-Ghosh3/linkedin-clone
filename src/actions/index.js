@@ -19,9 +19,10 @@ export function getUserAuth() {
         auth.onAuthStateChanged(async(user) => {
             if(user) {
                 dispatch(setUser(user));
+                console.log("hello");
             }
-        })
-    }
+        });
+    };
 }
 
 export function signOutAPI() {
