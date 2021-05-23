@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import PostModal from './PostModal'
+import ReactPlayer from 'react-player'
 import { connect } from 'react-redux'
 import { useState, useEffect } from 'react'
 import {getArticlesAPI} from '../actions/index'
@@ -38,7 +39,7 @@ const Main = (props) => {
             {
                 props.articles.length === 0 ? (
                 <p> There are no articles </p>) : (
-                    
+
                 <Container>
                 <ShareBox>
                  <div>
@@ -80,22 +81,27 @@ const Main = (props) => {
                 {
                     props.loading && <img src='./images/Spinner-3.gif' />
                 }
-                <Article>
+                {
+                    props.articles.length > 0 &&
+                    props.articles.map((article, key) => (
+                        
+                    <Article key={key}>
+
                     <SharedActor>
                         <a>
-                            <img src="/images/user.svg" alt="" />
+                            <img src={article.actor.image} alt="" />
                         
                             <div>
                                 <span>
-                                    Title
+                                    {article.actor.title}
                                 </span>
 
                                 <span>
-                                    Info
+                                    {article.actor.description}
                                 </span>
 
                                 <span>
-                                    Date
+                                    {article.actor.date.toDate().toLocalDateString()}
                                 </span>
                             </div>
                         </a>
@@ -106,11 +112,19 @@ const Main = (props) => {
                     </SharedActor>
 
                     <Description>
-                        Description
+                        {article.description}
                     </Description>
 
                     <SharedImg>
                         <a>
+                            {
+                                !article.sharedImg && article.video ? (
+                                <ReactPlayer width={"100%"} url={article.video} /> 
+                            )
+                            :
+                            (
+                                article.sharedImg && <img src={article.sharedImg} />
+                            )
                             <img src="https://www.pentasia.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaXhwIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9b531a296e23edbb0ae0d85e4160a44a71b44f8e/1662_original.jpg" alt="" width="30px" height="30px" />
                         </a>
                     </SharedImg>
@@ -124,7 +138,7 @@ const Main = (props) => {
                             </button>
                         </li>
                         <li>
-                            <a> 2 comments </a>
+                            <a>{article.comments}</a>
                         </li>
                     </SocialCounts>
 
@@ -151,6 +165,8 @@ const Main = (props) => {
                     </SocialActions>
 
                 </Article>
+                ))
+                }
             </Content>
             <PostModal showModal={showModal} handleClick={handleClick}/>
         </Container>
@@ -335,6 +351,8 @@ const SocialCounts = styled.ul`
 
         button{
             display: flex;
+            border: none;
+            background-color: white;
         }
     }
 `
@@ -352,6 +370,8 @@ const SocialActions = styled.div`
         align-items: center;
         padding: 8px;
         color: #0a66c2;
+        border: none;
+        background-color: white;
 
         @media(min-width: 768px){
             span{
