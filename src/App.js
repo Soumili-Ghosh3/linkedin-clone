@@ -33,11 +33,11 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {}
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getUserAuth: () => dispatch(getUserAuth()),
+  getUserAuth: () => dispatch(getUserAuth())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
