@@ -125,7 +125,7 @@ const Main = (props) => {
                             (
                                 article.sharedImg && <img src={article.sharedImg} />
                             )
-                            <img src="https://www.pentasia.com/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBaXhwIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9b531a296e23edbb0ae0d85e4160a44a71b44f8e/1662_original.jpg" alt="" width="30px" height="30px" />
+                            }
                         </a>
                     </SharedImg>
 
