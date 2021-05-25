@@ -3,8 +3,8 @@ import { useEffect } from 'react'
 import Login from './components/Login'
 import Header from './components/Header'
 import Home from './components/Home'
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import { getUserAuth } from './actions'
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import { getUserAuth } from './actions';
 import { connect } from 'react-redux';
 
 function App(props) {
@@ -17,7 +17,7 @@ function App(props) {
     <div className="App">
       <Router>
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <Login />
           </Route>
 
@@ -32,7 +32,7 @@ function App(props) {
 }
 
 const mapStateToProps = (state) => {
-  return {}
+  return {};
 };
 
 const mapDispatchToProps = (dispatch) => ({

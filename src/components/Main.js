@@ -14,7 +14,7 @@ const Main = (props) => {
         props.getArticles();
     }, []);
 
-    const handleClick = (e) => {
+    const handleClick = ((e) => {
         e.preventDefault();
         if(e.target !== e.currentTarget){
             return;
@@ -32,13 +32,12 @@ const Main = (props) => {
                 setShowModal("close");
                 break;
         }
-    };
+    });
 
     return (
             <>
             {
-                props.articles.length === 0 ? (
-                <p> There are no articles </p>) : (
+                (
 
                 <Container>
                 <ShareBox>
@@ -48,8 +47,8 @@ const Main = (props) => {
                     <img src={props.user.photoURL} />
                     ) : ( 
                     <img src="/images/user.svg" alt="" />
-                    )}
-
+                    )
+                }
                     <button onClick={handleClick}
                     disabled={props.loading ? true : false}> Start a post</button>
                 </div>
@@ -81,6 +80,7 @@ const Main = (props) => {
                 {
                     props.loading && <img src='./images/Spinner-3.gif' />
                 }
+
                 {
                     props.articles.length > 0 &&
                     props.articles.map((article, key) => (
@@ -164,19 +164,23 @@ const Main = (props) => {
                         </button>
                     </SocialActions>
 
-                </Article>
-                ))
+                 </Article>
+                    )
+                    )
                 }
             </Content>
             <PostModal showModal={showModal} handleClick={handleClick}/>
-        </Container>
-        )}
+            </Container>
+            )
+        }
     </>
     )
 }
 
 const Container = styled.div`
     grid-area: main;
+    width: 100%;
+    height: 100%;
 `
 
 const CommonCard = styled.div`

@@ -43,6 +43,7 @@ const PostModal = (props) => {
             description: editorText,
             timestamp: firebase.firestore.Timestamp.now(),
         };
+        console.log("hello");
         props.postArticle(payload);
         reset(e);
     };
@@ -63,12 +64,14 @@ const PostModal = (props) => {
             <Content>
                 <Header>
                     <h2> Create a post </h2>
-                    <button onClick={(event) => reset(event)}> <img src="/images/close-icon.svg" /></button>
+                    <button onClick={(event) => reset(event)}> 
+                    <img src="/images/close-icon.png" width="25px" height="25px" />
+                    </button>
                 </Header>
 
                 <SharedContent>
                     <UserInfo>
-                        {props.user.photoURL ? (<img src={props.user.photoURL} alt=""/>) : (<img src="/images/user.svg" alt="" />)}
+                        {props.user.photoURL ? (<img src={props.user.photoURL} />) : (<img src="/images/user.svg" />)}
                         <span> {props.user.displayName} </span>
                     </UserInfo>
 
@@ -111,16 +114,16 @@ const PostModal = (props) => {
                 <SharedCreation>
                     <AttachAssets>
                         <AssetButton onClick={() => switchAssetArea('image')}>
-                            <img src="/images/share-icon.svg" alt="" />
+                            <img src="/images/share-icon.png" alt="" width="30px" height="30px" />
                         </AssetButton>
                         <AssetButton onClick={() => switchAssetArea('media')}>
-                            <img src="/images/video.jpeg" alt="" />
+                            <img src="/images/video.jpeg" alt="" width="30px" height="30px"/>
                         </AssetButton>
                     </AttachAssets>
 
                     <ShareComment>
                         <AssetButton>
-                                <img src="/images/comment-icon.png" alt="" />
+                                <img src="/images/comment-icon.png" alt="" width="30px" height="30px"/>
                                 Anyone
                         </AssetButton>
                     </ShareComment>
@@ -153,9 +156,11 @@ const Container = styled.div`
 
 const Content =styled.div`
     width: 100%;
-    max-width: 52px;
+    height: 100%;
+    min-width: 52px;
     background-color: white;
     max-height: 90%;
+    max-width: 70%;
     overflow: initial;
     border-radius: 5px;
     position: relative;
@@ -222,7 +227,7 @@ const UserInfo = styled.div`
 
 const SharedCreation = styled.div`
     display: flex;
-    justify-content: space-space-between;
+    justify-content: space-between;
     padding: 12px 24px 12px 16px;
 `
 
@@ -230,6 +235,7 @@ const AssetButton = styled.button`
     display: flex;
     align-items: center;
     height: 40px;
+    width: 200px;
     min-width: auto;
     color: rgba(0, 0, 0, 0.5);
 `
@@ -298,7 +304,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-    postArticleAPI: (payload) => dispatch(postArticleAPI(payload)),
+    postArticle: (payload) => dispatch(postArticleAPI(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostModal);

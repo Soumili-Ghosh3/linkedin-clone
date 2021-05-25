@@ -1,6 +1,6 @@
 import { SET_USER } from '../actions/actionType'
 
-const INITIAL_STATE = {
+export const INITIAL_STATE = {
     user: null,
 };
 
