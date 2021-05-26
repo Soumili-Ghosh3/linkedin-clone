@@ -34,6 +34,11 @@ const Main = (props) => {
         }
     });
 
+    function FormatTime(time, prefix = "") {
+        var date = new Date(time); 
+        return Number.isNaN(date) ? "" : prefix + date.toUTCString();
+    }
+
     return (
             <>
             {
@@ -101,7 +106,7 @@ const Main = (props) => {
                                 </span>
 
                                 <span>
-                                    {article.actor.date.toDate().toLocalDateString()}
+                                    {FormatTime(article.actor.date.toDate())}
                                 </span>
                             </div>
                         </a>
@@ -118,12 +123,12 @@ const Main = (props) => {
                     <SharedImg>
                         <a>
                             {
-                                !article.sharedImg && article.video ? (
+                                !article.sharedImage && article.video ? (
                                 <ReactPlayer width={"100%"} url={article.video} /> 
                             )
                             :
                             (
-                                article.sharedImg && <img src={article.sharedImg} />
+                                article.sharedImage && <img src={article.sharedImage} />
                             )
                             }
                         </a>
@@ -138,7 +143,7 @@ const Main = (props) => {
                             </button>
                         </li>
                         <li>
-                            <a>{article.comments}</a>
+                            <a>{article.comments} comments</a>
                         </li>
                     </SocialCounts>
 
@@ -368,6 +373,8 @@ const SocialActions = styled.div`
     margin: 0;
     min-height: 40px;
     padding: 4px 8px;
+    border: none;
+    background: white;
 
     button{
         display: inline-flex;

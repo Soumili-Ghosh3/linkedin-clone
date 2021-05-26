@@ -114,7 +114,7 @@ const PostModal = (props) => {
                 <SharedCreation>
                     <AttachAssets>
                         <AssetButton onClick={() => switchAssetArea('image')}>
-                            <img src="/images/share-icon.png" alt="" width="30px" height="30px" />
+                            <img src="/images/image-icon.jpg" alt="" width="30px" height="30px" />
                         </AssetButton>
                         <AssetButton onClick={() => switchAssetArea('media')}>
                             <img src="/images/video.jpeg" alt="" width="30px" height="30px"/>
@@ -129,7 +129,7 @@ const PostModal = (props) => {
                     </ShareComment>
 
                     <PostButton disabled={!editorText ? true : false} 
-                    onClick={(event) => postArticleAPI(event)} >
+                    onClick={(event) => postArticle(event)} >
                         Post
                     </PostButton>
 

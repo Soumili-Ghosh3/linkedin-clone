@@ -48,7 +48,7 @@ export function signOutAPI() {
 
 export function postArticleAPI(payload) {
     console.log("hello");
-    return(dispatch) => {
+    return (dispatch) => {
         console.log("hello1");
         dispatch(setLoading(true));
         if(payload.image) {
